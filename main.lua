@@ -242,17 +242,28 @@ function love.update(dt)
     end
 
     -- player 2
-    if love.keyboard.isDown('up') then
-        player2.dy = -PADDLE_SPEED
-    elseif love.keyboard.isDown('down') then
-        player2.dy = PADDLE_SPEED
-    else
-        player2.dy = 0
-    end
+    -- if love.keyboard.isDown('up') then
+    --     player2.dy = -PADDLE_SPEED
+    -- elseif love.keyboard.isDown('down') then
+    --     player2.dy = PADDLE_SPEED
+    -- else
+    --     player2.dy = 0
+    -- end
+
+    --AI
+    -- if gameState == 'play' then
+    --        if ball.y > player1.y and ball.y + ball.height < player1.y + player1.height then player1.dy = 0
+    --        elseif player1.y > ball.y + ball.height then
+    --         player1.dy = -PADDLE_SPEED
+    --        elseif player1.y + player1.height < ball.y then player1.dy = PADDLE_SPEED
+    --        else player1.y = 0
+    -- end
+
 
     -- update our ball based on its DX and DY only if we're in play state;
     -- scale the velocity by dt so movement is framerate-independent
     if gameState == 'play' then
+        player2.y = ball.y + 2
         ball:update(dt)
     end
 
